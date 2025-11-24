@@ -64,7 +64,9 @@ public class GameObject {
     }
     
     public void updateComponents(float deltaTime) {
-        for (Component<?> component : components) {
+        // Use index-based loop to avoid ConcurrentModificationException if a component destroys the object
+        for (int i = 0; i < components.size(); i++) {
+            Component<?> component = components.get(i);
             if (component.isEnabled()) {
                 component.update(deltaTime);
             }

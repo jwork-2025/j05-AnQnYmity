@@ -68,6 +68,11 @@ public class MenuScene extends Scene {
     }
     
     private void handleMenuSelection() {
+        if (inputManager.isKeyJustPressed(27)) {
+            engine.stop();
+            return;
+        }
+
         if (inputManager.isKeyJustPressed(38)) {
             selectedIndex = (selectedIndex - 1 + options.length) % options.length;
         } else if (inputManager.isKeyJustPressed(40)) {

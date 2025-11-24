@@ -109,10 +109,13 @@ public class GameEngine {
         
         inputManager.update();
         
+        // Removed hardcoded ESC exit to allow scenes to handle it
+        /*
         if (inputManager.isKeyPressed(27)) {
             running = false;
             cleanup();
         }
+        */
         
         if (renderer.shouldClose() && running) {
             running = false;

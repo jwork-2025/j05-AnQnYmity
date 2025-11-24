@@ -60,6 +60,13 @@ public class GameScene extends Scene {
     @Override
     public void update(float deltaTime) {
         super.update(deltaTime);
+        
+        if (engine.getInputManager().isKeyJustPressed(27)) {
+            engine.disableRecording();
+            engine.setScene(new MenuScene(engine, "MainMenu"));
+            return;
+        }
+
         time += deltaTime;
 
         gameLogic.handlePlayerInput(deltaTime);
